@@ -1,1 +1,10 @@
 # Ship-war
+Greetings to all, friends! I will show you my project of the game - "Sea Battle". It's written for the console, and of course I'll explain how it works.
+
+To begin with, we are greeted by a menu with the words "Start over" or "Continue". There is a file saving in the game in order to avoid accidental exit, as there may be a desire to continue the unfinished game. After clicking "New Game", the fields will be displayed to us. The first field displays the player's field, the second - the enemy battlefield (for convenience, enemy ships will also be displayed).
+
+After displaying the field, we have two points to fill in the field. You can fill in the field with ships both automatically and manually. In the case of automatic filling, everything is simple: you should enter this item, and the ships will be filled. When choosing manual filling, you will have to select the next coordinate on the field. After the selection, a selection of the side on which you will position the ship will be displayed. If the location of your ship goes beyond the field boundary, you will need to enter a new coordinate and indicate the side until the ship gets into the correct place. As in the classic game "Sea Battle", the number of ships corresponds to: four single-deck ships, three double-deck ships, two three-deck ships and one four-deck ship. Manual filling will start from a four-deck ship and so on to single-deck ones.
+
+What about the attacks? The coordinates must be entered through a space: first the X coordinate, then the Y coordinate. The bot's attack has a logic: if there is a hit on one of the decks of a multi-deck ship, the bot will hit the perimeter to destroy all the decks. In the code I added a command to change the color of the console for the beauty of the field.
+
+If you need help or if there is any mistake, let me know.
