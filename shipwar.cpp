@@ -257,7 +257,7 @@ bool ship_show(int arr[][10], int X, int  Y, int napravlen, int length) {
 	}
 	return rules;
 }
-int atack(int arr[][10],int arr1[][10], int ship[], int person_X, int person_Y) {
+int atack(int arr[][10], int arr1[][10], int ship[], int person_X, int person_Y) {
 	int popal = 0;
 	if (arr[person_X - 1][person_Y - 1] >= 1)
 	{
@@ -276,7 +276,7 @@ int atack(int arr[][10],int arr1[][10], int ship[], int person_X, int person_Y) 
 	{
 		arr[person_X - 1][person_Y - 1] = -1;
 	}
-	save_file(arr,arr1);
+	save_file(arr, arr1);
 	return popal;
 }
 void bots_logic(int arr[][10], int arr1[][10], int ship[10], int ship_num, int* arr_naprav, int naprav) {
@@ -290,8 +290,8 @@ void bots_logic(int arr[][10], int arr1[][10], int ship[10], int ship_num, int* 
 	if (povt == 0) {
 		X = rand() % 10;
 		Y = rand() % 10;
-		result= atack(arr,arr1,ship, X, Y);
-		if (result==2) {
+		result = atack(arr, arr1, ship, X, Y);
+		if (result == 2) {
 			first_coord_x = X - 1;
 			first_coord_y = Y - 1;
 			povt = true;
@@ -378,7 +378,6 @@ void bots_logic(int arr[][10], int arr1[][10], int ship[10], int ship_num, int* 
 			cout << "You kill";
 			povt = false;
 		}
-		//save_file(arr);
 		Sleep(1000);
 	}
 }
@@ -399,33 +398,30 @@ int main() {
 	int result;
 	int person_X = 0, person_Y = 0;
 	int napravlen;
+	cout << "New game(1)" << "\n" << "Continue(2)" << "\n";
 	cin >> menu;
-		field(arr, arr1);
+	field(arr, arr1);
 	if (menu == 1)
 	{
 		cout << "Input punkt :\n1-automaticaly ships\n2-handle ships\n";
 		cin >> punkt;
-		/*save_file(arr);
-		save_file(arr1);*/
+		ships_in_field(arr1, ship1);
+		ships_in_field(arr, ship);
 	}
 	if (menu == 2)
 	{
-		load_file(arr,arr1);
+		load_file(arr, arr1);
 	}
 	field(arr, arr1);
 
-	ships_in_field(arr1, ship1);
 	if (punkt == 1) {
-		ships_in_field(arr, ship);
 		do
 		{
-
+			
 			field(arr, arr1);
 			cout << "Input coordinats(with space):";
 			cin >> person_Y >> person_X;
-			result = atack(arr1, arr,ship1, person_X, person_Y);
-			//save_file(arr1);
-			//save_file(arr);
+			result = atack(arr1, arr, ship1, person_X, person_Y);
 			if (result == 2)
 			{
 				cout << "You hit,but dont kill" << endl;
@@ -442,7 +438,7 @@ int main() {
 				Sleep(1000);
 			}
 
-			bots_logic(arr,arr1, ship, ship_num, arr_naprav, naprav);
+			bots_logic(arr, arr1, ship, ship_num, arr_naprav, naprav);
 
 		} while (true);
 	}
@@ -466,7 +462,7 @@ int main() {
 			field(arr, arr1);
 			cout << "Input coordinats(with space):";
 			cin >> person_Y >> person_X;
-			result = atack(arr1, arr,ship1, person_X, person_Y);
+			result = atack(arr1, arr, ship1, person_X, person_Y);
 			if (result == 2)
 			{
 				cout << "You hit,but dont kill" << endl;
@@ -482,7 +478,7 @@ int main() {
 				cout << "You dont hit" << endl;
 				Sleep(1000);
 			}
-			bots_logic(arr,arr1, ship, ship_num, arr_naprav, naprav);
+			bots_logic(arr, arr1, ship, ship_num, arr_naprav, naprav);
 
 		} while (true);
 	}
